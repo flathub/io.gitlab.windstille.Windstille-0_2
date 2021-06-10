@@ -14,6 +14,8 @@
         "--socket=pulseaudio"
     ],
     "cleanup": [
+        "/bin/guid",
+        "/bin/guile",
         "/lib/libguile-3.0.so.1.2.0-gdb.scm"
     ],
     "modules": [
