@@ -13,6 +13,9 @@
         "--socket=x11",
         "--socket=pulseaudio"
     ],
+    "cleanup": [
+        "/lib/libguile-3.0.so.1.2.0-gdb.scm"
+    ],
     "modules": [
         "shared-modules/libatomic_ops/libatomic_ops-7.6.10.json",
         "shared-modules/bdwgc/bdwgc-7.6.6.json",
@@ -26,7 +29,7 @@
         "shared-modules/swig/swig-3.0.12.json",
         {
             "name": "windstille-0.2",
-            "buildsystem": "cmake",
+            "buildsystem": "cmake-ninja",
             "sources": [
                 {
                     "type": "git",
