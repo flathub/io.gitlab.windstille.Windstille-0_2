@@ -1,7 +1,7 @@
 {
     "app-id": "io.gitlab.windstille.Windstille-0_2",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "20.08",
+    "runtime-version": "23.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "windstille-0.2",
     "rename-icon": "windstille-0.2",
