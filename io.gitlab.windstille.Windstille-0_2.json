@@ -1,7 +1,7 @@
 {
     "app-id": "io.gitlab.windstille.Windstille-0_2",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "20.08",
+    "runtime-version": "23.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "windstille-0.2",
     "rename-icon": "windstille-0.2",
@@ -22,12 +22,60 @@
         "shared-modules/libatomic_ops/libatomic_ops-7.6.10.json",
         "shared-modules/bdwgc/bdwgc-7.6.6.json",
         "shared-modules/unistring/unistring-0.9.10.json",
-        "shared-modules/guile/guile-3.0.4.json",
+        {
+            "name": "guile",
+            "buildsystem": "autotools",
+            "config-opts": [
+                "--disable-error-on-warning"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://ftp.gnu.org/gnu/guile/guile-3.0.4.tar.xz",
+                    "sha256": "6b7947dc2e3d115983846a268b8f5753c12fd5547e42fbf2b97d75a3b79f0d31"
+                }
+            ],
+            "cleanup": [
+                "*.a",
+                "*.la",
+                "/bin/guile-config",
+                "/bin/guile-snarf",
+                "/bin/guile-tools",
+                "/include",
+                "/share/info",
+                "/share/man",
+                "/share/aclocal",
+                "/lib/pkgconfig"
+            ]
+        },
         "shared-modules/scons/scons-4.json",
         "shared-modules/xmu/libxmu-1.1.2.json",
         "shared-modules/glu/glu-9.json",
         "shared-modules/SDL/SDL-1.2.15.json",
-        "shared-modules/clanlib/clanlib-1.0.json",
+        {
+            "name": "clanlib-1.0",
+            "buildsystem": "autotools",
+            "config-opts": [
+                "--disable-docs"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.com/grumbel/clanlib-1.0.git",
+                    "commit": "fef70e52a9ddb7f419a2575bd772be508af910dc"
+                },
+                {
+                    "type": "patch",
+                    "path": "clanlib-glibc2.34.patch"
+                }
+            ],
+            "cleanup": [
+                "*.a",
+                "*.la",
+                "/include",
+                "/lib/pkgconfig"
+            ]
+        },
         "shared-modules/swig/swig-3.0.12.json",
         {
             "name": "windstille-0.2",
