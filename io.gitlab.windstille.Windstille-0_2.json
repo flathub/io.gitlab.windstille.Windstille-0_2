@@ -22,7 +22,32 @@
         "shared-modules/libatomic_ops/libatomic_ops-7.6.10.json",
         "shared-modules/bdwgc/bdwgc-7.6.6.json",
         "shared-modules/unistring/unistring-0.9.10.json",
-        "shared-modules/guile/guile-3.0.4.json",
+        {
+            "name": "guile",
+            "buildsystem": "autotools",
+            "config-opts": [
+                "--disable-error-on-warning"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://ftp.gnu.org/gnu/guile/guile-3.0.4.tar.xz",
+                    "sha256": "6b7947dc2e3d115983846a268b8f5753c12fd5547e42fbf2b97d75a3b79f0d31"
+                }
+            ],
+            "cleanup": [
+                "*.a",
+                "*.la",
+                "/bin/guile-config",
+                "/bin/guile-snarf",
+                "/bin/guile-tools",
+                "/include",
+                "/share/info",
+                "/share/man",
+                "/share/aclocal",
+                "/lib/pkgconfig"
+            ]
+        },
         "shared-modules/scons/scons-4.json",
         "shared-modules/xmu/libxmu-1.1.2.json",
         "shared-modules/glu/glu-9.json",
